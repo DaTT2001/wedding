@@ -326,6 +326,9 @@ export const guest = (() => {
         config = storage('config');
         information = storage('information');
 
+        // ensure Google Calendar button is wired after `config` is available
+        buildGoogleCalendar();
+
         const vid = video.init();
         const img = image.init();
         const aud = audio.init();
