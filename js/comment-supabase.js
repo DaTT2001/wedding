@@ -10,7 +10,7 @@ const supabaseClient = window.supabase.createClient(
 // ===== Send comment =====
 window.sendComment = async function () {
   const name = document.getElementById("form-name").value.trim();
-  const presence = Number(document.getElementById("form-presence").value);
+  const presence = 1;
   const message = document.getElementById("form-comment").value.trim();
 
   if (!name || !message || presence === 0) {
@@ -56,9 +56,6 @@ window.loadComments = async function () {
     wrap.innerHTML += `
       <div class="border rounded-4 p-2 mb-2">
         <b>${c.name}</b>
-        <small class="text-muted">
-          • ${c.presence == 1 ? "Sẽ đến" : "Không tham dự"}
-        </small>
         <p class="m-0">${c.message}</p>
       </div>
     `;
